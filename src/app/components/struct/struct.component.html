@@ -1,0 +1,9 @@
+<p *ngIf="isShow">
+  struct works!
+</p>
+<ul>
+  <li  *ngFor="let subject of arrName">
+    <p>{{subject}}</p>
+  </li>
+</ul>
+<button (click)="Show()">Click</button>

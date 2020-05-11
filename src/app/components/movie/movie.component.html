@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <table class="table table-bordered table-hover">
+        <thead style="background: cornflowerblue">
+        <tr>
+          <th>ID</th>
+          <th>name</th>
+          <th>action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let movie of movies">
+          <td>{{movie.id}}</td>
+          <td>{{movie.name}}</td>
+          <td>
+            <button type="submit" class="btn-danger" (click)="edit(movie)">Edit</button>
+            <button type="submit" class="btn-primary" (click)="delete(movie.id)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <hr/>
+     <form action="" method="post" role="form">
+       <legend>ADD</legend>
+       <div class="form-group">
+         <label for="">Name</label>
+          <input type="text" class="form-control" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+       </div>
+       <button type="submit" class="btn-danger" (click)="onAdd()">submit</button>
+     </form>
+      <hr/>
+      <form *ngIf="movie">
+        <legend>Edit</legend>
+        <div class="form-group">
+          <label for="">Name</label>
+          <input type="text" class="form-control" [(ngModel)]="movie.name" [ngModelOptions]="{standalone: true}">
+        </div>
+        <button type="submit" class="btn-danger" (click)="onUpdate()">Update</button>
+      </form>
+    </div>
+  </div>
+</div>

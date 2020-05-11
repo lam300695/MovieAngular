@@ -1,0 +1,22 @@
+<div *ngIf="ishidden">
+  <input placeholder="enter En" [(ngModel)]="newEn"><br>
+  <input placeholder="enter Vi" [(ngModel)]="newVi">
+</div>
+<button (click)="addWord()">Submit</button>
+<button (click)="hidden()">them tu moi</button>
+
+<br><br>
+<select [(ngModel)]="fillter">
+  <option value="xemTatCa">Xem Tat Ca</option>
+  <option value="xemDaNho">Xem Da Nho</option>
+  <option value="xemChuaNho">Xem Chua Nho</option>
+</select>
+<div *ngFor="let word of arrWords">
+  <div class="word" *ngIf="fillter==='xemTatCa' || (fillter === 'xemDaNho' && word.memorized) || (fillter === 'xemChuaNho' && !word.memorized)">
+    <h4 [ngStyle]="{color : word.memorized ? 'green' : 'blue'}">{{word.en}}</h4>
+    <p>{{word.vn}}</p>
+    <button (click)="removeArr(word.id)">Xoa</button>
+    <button (click)="word.memorized = !word.memorized" >{{word.memorized ? 'chua thuoc' : 'da thuoc'}}</button>
+    ---------
+  </div>
+</div>
