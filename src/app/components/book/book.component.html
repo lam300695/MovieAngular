@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <table class="table table-bordered table-hover">
+        <thead style="background: cornflowerblue">
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let book of books">
+          <td>{{book.id}}</td>
+          <td>{{book.title}}</td>
+          <td>{{book.description}}</td>
+          <td>
+            <button type="submit" class="btn-danger" (click)="edit(book)">Edit</button>
+            <button type="submit" class="btn-primary" (click)="delete(book.id)">Delete</button>
+            <button type="submit" class="btn-primary" (click)="view(book)">View</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <hr/>
+      <form  action="" method="post" role="form">
+        <legend>ADD</legend>
+        <div class="form-group">
+          <label for="">Title</label>
+          <input type="text" class="form-control" [(ngModel)]="title" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+          <label for="">Description</label>
+          <input type="text" class="form-control" [(ngModel)]="description" [ngModelOptions]="{standalone: true}">
+        </div>
+        <button type="submit" class="btn-danger" (click)="onAdd()">submit</button>
+      </form>
+      <hr/>
+      <form *ngIf="book">
+        <legend>Edit</legend>
+        <div class="form-group">
+          <label for="">Title</label>
+          <input type="text" class="form-control" [(ngModel)]="book.title" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+          <label for="">Description</label>
+          <input type="text" class="form-control" [(ngModel)]="book.description" [ngModelOptions]="{standalone: true}">
+        </div>
+        <button type="submit" class="btn-danger" (click)="onUpdate()">Update</button>
+      </form>
+      <hr/>
+      <form *ngIf="check">
+        <legend>View</legend>
+        <div class="form-group">
+          <label for="">Title</label>
+          <input type="text" class="form-control" [(ngModel)]="book.title" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+          <label for="">Description</label>
+          <input type="text" class="form-control" [(ngModel)]="book.description" [ngModelOptions]="{standalone: true}">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

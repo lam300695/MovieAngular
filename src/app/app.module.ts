@@ -20,6 +20,7 @@ import { MovieComponent } from './components/movie/movie.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import {RouterModule, Routes} from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
+import { BookComponent } from './components/book/book.component';
 
 
 
@@ -41,6 +42,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormComponent,
     MovieComponent,
     MovieDetailComponent,
+    BookComponent,
   ],
   imports: [
     BrowserModule,
